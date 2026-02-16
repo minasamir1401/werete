@@ -12,3 +12,4 @@ python-jose[cryptography]
 argon2-cffi
 pydantic-settings
 python-dotenv
+passlib[argon2]

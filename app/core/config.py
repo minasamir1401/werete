@@ -28,8 +28,13 @@ class SmartSettings(BaseSettings):
             return v
         
         # Smart SQLite Fallback
-        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        db_path = os.path.join(base_dir, "gold_prices.db")
+        # Check if we are running in a container with a persistent mount point (/app/data)
+        if os.path.exists("/app/data"):
+            db_path = "/app/data/gold_prices.db"
+        else:
+            base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+            db_path = os.path.join(base_dir, "gold_prices.db")
+            
         return f"sqlite:///{db_path}"
 
     # 🌍 Intelligent CORS Management
