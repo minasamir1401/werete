@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+httpx
+beautifulsoup4
+lxml
+requests
+python-multipart
+python-slugify
+python-jose[cryptography]
+argon2-cffi
+pydantic-settings
+python-dotenv

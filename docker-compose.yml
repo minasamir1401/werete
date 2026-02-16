@@ -1,0 +1,17 @@
+services:
+  backend:
+    build: .
+    container_name: gold-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./gold_prices.db:/app/gold_prices.db
+      - ./static:/app/static
+      - ./logs:/app/logs
+    env_file:
+      - .env
+    restart: always
+
+networks:
+  default:
+    name: gold-network
